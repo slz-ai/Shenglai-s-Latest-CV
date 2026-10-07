@@ -1,0 +1,220 @@
+%==============================================================
+%  Shenglai Zeng -- CV  (alternative layout, modeled on a
+%  single-column academic CV: centered header, ruled section
+%  titles, org/date entry lines, venue-tagged publications)
+%
+%  Build:  pdflatex main2.tex  (twice)
+%==============================================================
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{libertine}                 % Linux Libertine / Biolinum family
+\renewcommand*{\familydefault}{\sfdefault}  % use Biolinum (sans) as the document face
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue, citecolor=linkblue, breaklinks=true}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\definecolor{accent}{RGB}{0,71,171}     % section titles, rules, venue tags
+\definecolor{linkblue}{RGB}{0,82,164}   % hyperlinks
+\definecolor{honor}{RGB}{197,48,48}   % Oral / Spotlight / best-paper marks (matches website accent)
+
+% Section: bold title with a full-width rule underneath.
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-0.55em}{\color{accent}\rule{\textwidth}{0.9pt}}]
+\titlespacing*{\section}{0pt}{1.1em}{0.5em}
+
+% Entry header: bold organisation (left) + dates (right), then the role line.
+\newcommand{\entry}[2]{\textbf{#1}\hfill #2\par}
+\newcommand{\role}[1]{\textit{#1}\par}
+\newcommand{\meta}[1]{{\small #1}\par}
+\newcommand{\blurb}[1]{\vspace{0.25em}\par #1\par\vspace{0.25em}}
+
+\setlist[itemize,1]{label=$\triangleright$,leftmargin=1.5em,itemsep=1.5pt,topsep=2.5pt,parsep=0pt}
+\setlist[itemize,2]{label=$\circ$,leftmargin=1.3em,itemsep=1pt,topsep=1.5pt,parsep=0pt}
+
+% Publication list: bold [Venue'YY] tag in a hanging left column.
+\newenvironment{publist}{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{34mm}%
+    \setlength{\labelwidth}{32mm}%
+    \setlength{\labelsep}{2mm}%
+    \setlength{\itemsep}{1.5mm}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{1.5mm}%
+    \renewcommand{\makelabel}[1]{\bfseries\color{accent}##1\hfill}%
+  }}{\end{list}}
+
+\newcommand{\me}[1]{\textbf{#1}}
+\newcommand{\pubgroup}[1]{\vspace{1.5mm}{\bfseries\large\color{accent}#1}\vspace{-0.5mm}}
+
+%==============================================================
+\begin{document}
+
+\begin{center}
+  {\huge\bfseries Shenglai Zeng}\\[0.55em]
+  \small
+  \href{mailto:zengshe1@msu.edu}{zengshe1@msu.edu} \,\textbar\,
+  (+1) 517-974-7616 \,\textbar\,
+  \href{https://slz-ai.github.io/}{Website} \,\textbar\,
+  \href{https://scholar.google.com/citations?user=2EFS5WEAAAAJ}{Google Scholar} \,\textbar\,
+  Citations 1340+
+\end{center}
+\vspace{0.4em}
+
+\section{Research Interest}
+I am a fourth-year Ph.D. candidate at Michigan State University, advised by Professor Jiliang Tang,
+and I am on the job market for positions starting in 2027. My research builds \textbf{personalized, proactive, and safe agents} with \textbf{multimodal capabilities} that interact with people. I work on the two mechanisms that determine what such an agent can actually do: the \textbf{agent harness} (memory, retrieval, self-improvement, and evaluation environments) and \textbf{post-training}. I have published 35+ papers at NeurIPS, ICML, ICLR, ACL, EMNLP, NAACL, KDD,
+and CVPR, received the Best Paper Award of IEEE Transactions on Cloud Computing (2023) and an
+ACL-2026 SAC Highlight (top 1\%, Best Paper Candidate), and have industry research experience at
+Meta AI, Amazon, and Baidu.
+
+\section{Education}
+\entry{Michigan State University, East Lansing, USA}{Sept. 2023 -- Present}
+\role{Ph.D. Candidate in Computer Science and Engineering}
+\begin{itemize}
+  \item Advisor: Dr. Jiliang Tang \quad\textbar\quad Lab: Data Science and Engineering (DSE) Lab
+  \item Expected Graduation: \textbf{May 2027}
+  \item Research Focus: Agentic AI, Retrieval \& Memory, Personalized LLMs, Agent Safety \& Privacy, Multimodal
+\end{itemize}
+\vspace{0.5em}
+\entry{University of Electronic Science and Technology of China, Chengdu, China}{Sept. 2019 -- Jun. 2023}
+\role{B.Sc. in Computer Science and Engineering, Yingcai Honor School}
+\begin{itemize}
+  \item CGPA 3.98/4.00; Weighted Average 93.97/100 (\textbf{1st among 100 students})
+\end{itemize}
+
+\section{Honors and Awards}
+\begin{itemize}
+  \item \textbf{SAC Highlight (Top 1\%) \& Best Paper Candidate}, ACL-2026 \hfill 2026
+  \item \textbf{Best Paper Award}, IEEE Transactions on Cloud Computing (JCR Q1) \hfill 2023
+  \item \textbf{The Most Outstanding Students Award}, UESTC (highest honor; 10 students university-wide)
+  \item \textbf{National Scholarship} (highest undergraduate honor in China) \hfill 2020
+  \item WAC Scholarship (10 undergraduates university-wide per year), UESTC \hfill 2021
+  \item 1st Outstanding Academic Scholarship (Top 5\%), UESTC \hfill 2020, 2021, 2022
+\end{itemize}
+
+\section{Industry Experience}
+\textit{All papers in this section are \textbf{first-authored} (including co-first).}\par\vspace{0.4em}
+\entry{Meta AI, Seattle, USA}{Summer 2026}
+\role{Research Scientist Intern, Next Generation Proactive Agents}
+\meta{Mentored by Xiao Yang, \href{https://lunadong.com/}{Luna Dong}, and \href{https://scottyih.org/}{Scott Yih}}
+\meta{Closely worked with a cross-organizational team spanning Superintelligence Labs, Reality Labs, FAIR, and MRS}
+\blurb{I built \textbf{memory-driven proactive agents}: assistants that can proactively use their context and decide \emph{whether and when} to speak, not just what to answer. I introduced \textbf{MPA}, a benchmark pairing egocentric video with year-long, distractor-rich personal memories (\textbf{$\sim$618K tokens} each) and scoring content and timing jointly, and found \textbf{existing models severely limited} in this regime. My plug-and-play harness \textbf{GPM} surfaces memory from a graph-organized store and gates it down to what is worth interrupting for, lifting strict accuracy from \textbf{less than 10\%} to \textbf{37.0\%} (Qwen3.8-27B) and to \textbf{38\%} on GPT-5.3-Chat with no training at all, reaching \textbf{42.8\%} with \textbf{RL post-training}.}
+\begin{itemize}
+  \item Memory-Driven Proactive Agents \textbf{[Submitted to ICLR'27]}.
+\end{itemize}
+\vspace{0.5em}
+\entry{Amazon, Search \& Shopping Foundation Model Team, CA, USA}{Summer 2024, 2025}
+\role{Applied Scientist Intern, Retrieval-Augmented Generation and Personalization}
+\meta{Mentors: Tianqi Zheng, Dante Everaert \quad\textbar\quad Managers: Hanqing Lu, Chuan Tian, Monica Xiao Cheng}
+\blurb{My work centered on two sides of making retrieval-augmented and personalized LLMs deployable. \textbf{On the model side} (how a system uses the context it retrieves): attention-guided compression cuts personalization context \textbf{50$\times$} (10K$\rightarrow$200 tokens) at near-full-context quality \href{https://arxiv.org/abs/2602.07778}{[ACL'26]}; gated representation fine-tuning buys \textbf{+26--35 points} of context robustness while tuning only \textbf{0.0004\% of parameters on fewer than 200 examples} \href{https://arxiv.org/abs/2502.14100}{[ACL'25]}; and representation-based knowledge checking filters misleading evidence at \textbf{95\% accuracy} \href{https://arxiv.org/abs/2411.14572}{[NAACL'25]}. \textbf{On the data side} (what the retrieval corpus itself exposes): \textbf{self-improving synthetic data} replaces private records at comparable task quality \href{https://arxiv.org/abs/2406.14773}{[EMNLP'25]}, and I gave the first account of how \textbf{multimodal RAG leaks} the images and text it retrieves \href{https://arxiv.org/abs/2505.13957}{[EMNLP'25]}. Invited back for a second summer.}
+\begin{itemize}
+  \item Efficient Personalized LLMs (PLLMs) \href{https://arxiv.org/abs/2602.07778}{[ACL'26, Oral, Best Paper Candidate, SAC Highlight]}.
+  \item Knowledge Checking in RAG \href{https://arxiv.org/abs/2411.14572}{[NAACL'25, Oral]}.
+  \item Representation Finetuning for Robust RAG \href{https://arxiv.org/abs/2502.14100}{[ACL'25]}.
+  \item Self-Improving Synthetic Data for RAG \href{https://arxiv.org/abs/2406.14773}{[EMNLP'25]}.
+  \item Multi-modal RAG \href{https://arxiv.org/abs/2505.13957}{[EMNLP'25]}.
+\end{itemize}
+\vspace{0.5em}
+\entry{Baidu Inc., Search \& Agent Business Team, Beijing, China}{May 2023 -- May 2024}
+\role{Research Intern, RAG Privacy and LLM Memorization}
+\meta{Mentors: Dr. Yiding Liu, Dr. Dawei Yin}
+\blurb{I established the privacy foundations of retrieval-augmented generation: the \textbf{first work to reveal that retrieval-augmented systems carry severe privacy risk}, leaking their own retrieval database \href{https://arxiv.org/abs/2402.16893}{[ACL'24]}. The threat model it introduced has since been carried into the privacy analysis of future systems (multi-modal RAG, agent memory, and multi-agent systems), and the paper now has \textbf{350+ citations}. I also produced the \textbf{first task-level map of memorization in LLM post-training} \href{https://arxiv.org/abs/2310.06714}{[ACL'24]}, showing how memorization \textbf{scales with model size} and that the scaling itself is task-dependent (22.3\% for summarization vs.\ 0.15\% for reading comprehension).}
+\begin{itemize}
+  \item RAG Privacy and Retrieval-Database Leakage \href{https://arxiv.org/abs/2402.16893}{[ACL'24]}.
+  \item Memorization in LLM post-training \href{https://arxiv.org/abs/2310.06714}{[ACL'24]}.
+\end{itemize}
+
+\section{Publications}
+35+ papers at top-tier ML/NLP venues (NeurIPS, ICML, ICLR, ACL, EMNLP, NAACL, KDD, CVPR), including
+\textbf{12 first-authored} publications. \textbf{1340+ citations} (Google Scholar, Sept.\ 2026).
+Recognitions include a \textbf{Best Paper Award} (IEEE TCC) and \textbf{Best Paper Candidate} (ACL), \textbf{Spotlight} (ICLR), \textbf{Oral} presentations (ACL, NAACL), and adoption in frontier-model technical reports (Muse Spark, Qwen, Kimi).
+\textit{* denotes equal contribution.}
+
+\pubgroup{First-Authored Publications}
+\begin{publist}
+\item[{[NeurIPS'26]}] \textbf{S. Zeng}, Q. Wang, K. Guo, X. Dai, X. Long, H. Liu, ``Magnifying What Matters: Attention-Guided Adaptive Rendering for Visual Text Comprehension'', \textit{Conference on Neural Information Processing Systems}, 2026.
+\item[{[ICML'26]}] \textbf{S. Zeng*}, J. Zhang*, K. Guo, X. Dai, H. Liu, J. Tang, Y. Chang, ``Fix Before Search: Benchmarking Agentic Query Visual Pre-processing in Multimodal Retrieval-Augmented Generation'', \textit{International Conference on Machine Learning}, 2026.
+\item[{[ACL'26, Oral]}] \textbf{S. Zeng}, T. Zheng, C. Tian, D. Everaert, Y.-S. Wang, Y. Huang, M. J. Morais, R. Patki, J. Tian, X. Dai, K. Guo, M. X. Cheng, H. Liu, ``Attn-GS: Attention-Guided Context Compression for Efficient Personalized LLMs'', \textit{Annual Meeting of the Association for Computational Linguistics, \textbf{\color{honor}Oral}, \textbf{\color{honor}SAC Highlight (Top 1\%)}, \textbf{\color{honor}Best Paper Candidate}}, 2026.
+\item[{[EMNLP'25]}] \textbf{S. Zeng}, J. Zhang, P. He, J. Ren, T. Zheng, H. Lu, H. Xu, H. Liu, Y. Xing, J. Tang, ``Mitigating the Privacy Issues in Retrieval-Augmented Generation (RAG) via Pure Synthetic Data'', \textit{Conference on Empirical Methods in Natural Language Processing}, 2025.
+\item[{[EMNLP'25]}] \textbf{S. Zeng*}, J. Zhang*, J. Ren, T. Zheng, H. Liu, X. Tang, Y. Chang, ``Beyond Text: Unveiling Privacy Vulnerabilities in Multi-modal Retrieval-Augmented Generation'', \textit{Conference on Empirical Methods in Natural Language Processing}, 2025.
+\item[{[ACL'25]}] \textbf{S. Zeng}, P. He, K. Guo, T. Zheng, H. Lu, Y. Xing, H. Liu, ``Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach'', \textit{Annual Meeting of the Association for Computational Linguistics}, 2025.
+\item[{[NAACL'25, Oral]}] \textbf{S. Zeng}, J. Zhang, B. Li, Y. Lin, T. Zheng, D. Everaert, H. Lu, H. Liu, Y. Xing, M. X. Cheng, J. Tang, ``Towards Knowledge Checking in Retrieval-Augmented Generation: A Representation Perspective'', \textit{Conference of the North American Chapter of the Association for Computational Linguistics, \textbf{\color{honor}Oral}}, 2025.
+\item[{[ACL'24]}] \textbf{S. Zeng*}, Y. Li*, J. Ren, Y. Liu, H. Xu, P. He, Y. Xing, S. Wang, J. Tang, D. Yin, ``Exploring Memorization in Fine-tuned Language Models'', \textit{Annual Meeting of the Association for Computational Linguistics}, 2024.
+\item[{[ACL'24]}] \textbf{S. Zeng*}, J. Zhang*, P. He, Y. Xing, Y. Liu, H. Xu, J. Ren, S. Wang, D. Yin, Y. Chang, J. Tang, ``The Good and The Bad: Exploring Privacy Issues in Retrieval-Augmented Generation (RAG)'', \textit{Findings of the Association for Computational Linguistics: ACL}, 2024.
+\item[{[IEEE TCC, Best Paper]}] \textbf{S. Zeng}, Z. Li, H. Yu, Z. Zhang, L. Luo, B. Li, D. Niyato, ``HFedMS: Heterogeneous Federated Learning with Memorable Data Semantics in Industrial Metaverse'', \textit{IEEE Transactions on Cloud Computing, \textbf{\color{honor}Best Paper Award}}, 2023.
+\item[{[DASFAA'22, Oral]}] \textbf{S. Zeng}, Z. Li, H. Yu, Y. He, Z. Xu, D. Niyato, H. Yu, ``Heterogeneous Federated Learning via Grouped Sequential-to-Parallel Training'', \textit{International Conference on Database Systems for Advanced Applications, \textbf{\color{honor}Oral}}, 2022.
+\item[{[SDM'23]}] \textbf{S. Zeng*}, J. Wang*, Z. Long, Y. Wang, H. Xiao, F. Ma, ``Knowledge-Enhanced Semi-Supervised Federated Learning for Aggregating Heterogeneous Lightweight Clients in IoT'', \textit{SIAM International Conference on Data Mining}, 2023.
+\end{publist}
+
+\pubgroup{Co-Authored Publications}
+\begin{publist}
+\item[{[NeurIPS'26]}] Y. Li, Y. Feng, Z. Xu, Z. Ma, K. Zheng, F. Jiang, X. Sun, R. Shao, Z. Chen, Y. Huang, X. Han, B. Lee, K. Xu, \textbf{S. Zeng}, H. Hua, X. Zhang, B. Alomair, R. Krishna, L. Zettlemoyer, P. W. Koh, B. Ramasubramanian, L. Niu, X. Yue, R. Poovendran, ``JobBench: Aligning Agent Work With Human Will'', \textit{Conference on Neural Information Processing Systems, Datasets \& Benchmarks Track}, 2026. \textbf{(adopted by Meta Muse Spark 1.1, Moonshot Kimi K3, and Alibaba Qwen 3.8 Max)}
+\item[{[EMNLP'26]}] K. Guo, X. Dai, \textbf{S. Zeng}, H. Shomer, H. Han, Y. Wang, J. Tang, ``Beyond Static Retrieval: Opportunities and Pitfalls of Iterative Retrieval in GraphRAG'', \textit{Conference on Empirical Methods in Natural Language Processing}, 2026.
+\item[{[ICML'26]}] X. Dai, K. Yang, C. Luo, \textbf{S. Zeng}, K. Guo, J. Tang, ``When Do Hallucinations Arise? A Graph Perspective on the Evolution of Path Reuse and Path Compression'', \textit{International Conference on Machine Learning}, 2026.
+\item[{[KDD'26]}] K. Guo, X. Dai, Z. Zhang, N. Lin, \textbf{S. Zeng}, J. Ren, H. Han, J. Tang, ``Why Retrieval-Augmented Generation Fails: A Graph Perspective'', \textit{ACM SIGKDD Conference on Knowledge Discovery and Data Mining}, 2026.
+\item[{[NeurIPS'25]}] J. Ren, Z. Dai, X. Tang, Y. Xing, \textbf{S. Zeng}, H. Liu, J. Zeng, Q. Peng, S. Varshney, S. Wang, Q. He, C. C. Aggarwal, H. Liu, ``Keeping an Eye on LLM Unlearning: The Hidden Risk and Remedy'', \textit{Conference on Neural Information Processing Systems}, 2025.
+\item[{[EMNLP'25]}] K. Guo, H. Shomer, \textbf{S. Zeng}, H. Han, Y. Wang, J. Tang, ``Empowering GraphRAG with Knowledge Filtering and Integration'', \textit{Conference on Empirical Methods in Natural Language Processing}, 2025.
+\item[{[ACL'25]}] B. Wang, W. He, P. He, \textbf{S. Zeng}, Z. Xiang, Y. Xing, J. Tang, ``Unveiling Privacy Risks in LLM agent memory'', \textit{Annual Meeting of the Association for Computational Linguistics}, 2025.
+\item[{[KDD'25]}] B. Li, Z. Chen, H. Han, \textbf{S. Zeng}, J. Liu, J. Tang, ``Unveiling Mode Connectivity in Graph Neural Networks'', \textit{ACM SIGKDD Conference on Knowledge Discovery and Data Mining}, 2025.
+\item[{[CVPR'25]}] J. Ren, K. Chen, Y. Cui, \textbf{S. Zeng}, H. Liu, Y. Xing, J. Tang, L. Lyu, ``Six-CD: Benchmarking Concept Removals for Benign Text-to-Image Diffusion Models'', \textit{IEEE/CVF Conference on Computer Vision and Pattern Recognition}, 2025.
+\item[{[TMLR]}] P. He, Y. Xing, H. Xu, J. Ren, Y. Cui, \textbf{S. Zeng}, J. Tang, M. Yamada, M. Sabokrou, ``Stealthy Backdoor Attack via Confidence-driven Sampling'', \textit{Transactions on Machine Learning Research}.
+\item[{[ECCV'24]}] J. Ren, Y. Li, \textbf{S. Zeng}, H. Xu, L. Lyu, Y. Xing, J. Tang, ``Unveiling and Mitigating Memorization in Text-to-Image Diffusion Models through Cross Attention'', \textit{European Conference on Computer Vision}, 2024.
+\item[{[EMNLP'24]}] H. Xu, J. Ren, P. He, Y. Cui, \textbf{S. Zeng}, H. Liu, J. Tang, A. Liu, ``On the Generalization of Training-based ChatGPT Detection Methods'', \textit{Findings of the Association for Computational Linguistics: EMNLP}, 2024.
+\item[{[ICLR'24, Spotlight]}] P. He, H. Xu, J. Ren, Y. Cui, \textbf{S. Zeng}, H. Liu, C. Aggarwal, J. Tang, ``Sharpness-Aware Data Poisoning Attack'', \textit{International Conference on Learning Representations, \textbf{\color{honor}Spotlight}}, 2024.
+\item[{[NeurIPS'23]}] J. Li, H. Shomer, H. Mao, \textbf{S. Zeng}, Y. Ma, N. Shah, J. Tang, D. Yin, ``Evaluating Graph Neural Networks for Link Prediction: Current Pitfalls and New Benchmarking'', \textit{Conference on Neural Information Processing Systems, Datasets \& Benchmarks Track}, 2023.
+\end{publist}
+
+\section{Preprints and Under Review}
+\begin{publist}
+\item[{[Preprint]}] X. Long, Z. Chen, \textbf{S. Zeng}, S. Wang, K. Guo, J. Tang, ``MemTrace: Probing What Final Accuracy Misses in Long-Term Memory''.
+\item[{[Preprint]}] X. Dai, C.-H. Lo, K. Guo, \textbf{S. Zeng}, D. Luo, J. Tang, ``Uncovering Graph Reasoning in Decoder-only Transformers with Circuit Tracing''.
+\item[{[Under review]}] Z. Chen, J. Gu, J. Yin, X. Long, \textbf{S. Zeng}, X. Liu, K. Guo, K. Zhou, J. Tang, ``Exploring Cross-Scenario Generality of Agentic Memory Systems: Diagnostics and a Strong Baseline'', \textit{ACL Rolling Review}.
+\item[{[Under review]}] X. Dai, K. Guo, C.-H. Lo, \textbf{S. Zeng}, J. Ding, D. Luo, S. Mukherjee, J. Tang, ``GraphGhosts: Tracing Reasoning Structures Behind Large Language Models'', \textit{ACL Rolling Review}.
+\item[{[Preprint]}] Y. Lin, P. He, H. Zhao, \textbf{S. Zeng}, Z. Xiang, H. Liu, J. Tang, ``Structural Alignment Faking: Hiding Malicious Capabilities in Mixture-of-Experts LLMs''.
+\item[{[Preprint]}] J. Ren, H. Xu, P. He, Y. Cui, \textbf{S. Zeng}, J. Zhang, H. Wen, J. Ding, H. Liu, Y. Chang, J. Tang, ``Copyright Protection in Generative AI: A Technical Perspective''.
+\end{publist}
+
+\section{Invited Talks}
+\begin{itemize}
+  \item ``Securing Text and Empowering Vision: Evolution from RAG to Multimodal Agentic AI'' \hfill 2026 \\
+        Invited talk at University of Georgia, hosted by Prof.\ Zhen Xiang \emph{(upcoming)}
+  \item ``Securing Text and Empowering Vision: Evolution from RAG to Multimodal Agentic AI'' \hfill 2026 \\
+        Invited talk at Washington University in St.\ Louis, hosted by Prof.\ Jiaxin Huang
+  \item ``Attn-GS: Attention-Guided Context Compression for Efficient Personalized LLMs'' \hfill 2026 \\
+        Oral presentation at ACL 2026
+  \item ``Towards Knowledge Checking in Retrieval-Augmented Generation: A Representation Perspective'' \hfill 2025 \\
+        Oral presentation at NAACL 2025
+  \item ``Heterogeneous Federated Learning via Grouped Sequential-to-Parallel Training'' \hfill 2022 \\
+        Oral presentation at DASFAA 2022
+\end{itemize}
+
+\section{Community Services}
+\begin{itemize}
+  \item \textbf{Conference Reviewer / Program Committee:} NeurIPS, ICML, ICLR; ACL, EMNLP, NAACL
+        (via ACL Rolling Review), etc.
+  \item \textbf{Journal Reviewer:} ACM Transactions on Information Systems (TOIS), IEEE TKDE,
+        IEEE TMC, IEEE TPDS, IEEE Transactions on Information Forensics \& Security,
+        IEEE Transactions on Services Computing, IEEE Transactions on Vehicular Technology,
+        IEEE Internet of Things Journal, etc.
+  \item Reviewed \textbf{60+} papers.
+\end{itemize}
+
+\section{Mentorship}
+\begin{itemize}
+  \item \textbf{Jiankun Zhang} (PhD@Jilin University): [ICML'26], [ACL'24]
+  \item \textbf{Xianxuan Long} (PhD@MSU): [NeurIPS'26], [Preprint]
+  \item \textbf{Bo Wang} (PhD@Jilin University): [ACL'25]
+  \item \textbf{Qirui Wang} (MS@Xi'an Jiaotong University): [NeurIPS'26]
+\end{itemize}
+
+\end{document}
